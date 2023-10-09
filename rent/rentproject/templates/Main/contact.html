@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css'" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <script defer src="{% static 'js/' %}"></script>
+    <title>Contact Us</title>
+</head>
+
+<body class="fire">
+
+    <div class="container">
+        <div class="container">
+            <span class="big-circle"></span>
+            <img src="{% static 'images/shape.png' %}" class="square" alt="" />
+            <div class="form">
+                <div class="contact-info">
+                    <h3 class="title">Let's get in touch</h3>
+                    <p class="text">
+                        You Can Leave Your Quaries <br> I Will Contact You Soon
+                    </p>
+                    <div class="info" data-aos="zoom-in-right">
+                        <div class="information">
+                            <img src="{% static 'images/location.png' %}" class="icon" alt="" />
+                            <p>NSTI, Noida<br>Noida , U.P</p>
+                        </div>
+                        <div class="information">
+                            <img src="{% static 'images/email.png' %}" class="icon" alt="" />
+                            <p>bilalmirza@gmail.com</p>
+                        </div>
+                        <div class="information">
+                            <img src="{% static 'images/phone.png' %}" class="icon" alt="" />
+                            <p>+91 8287811126</p>
+                        </div>
+                    </div>
+                    <div class="social-media" data-aos="zoom-out-up">
+                        <p>Connect with us :</p>
+                        <div class="social-icons">
+                            <a href="https://facebook.com">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://twitter.com">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://instagram.com">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://linkedin.com">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <span class="circle one"></span>
+                    <span class="circle two"></span>
+                    <form action="/contact/" method="post">
+                        {% csrf_token %}
+                        <h3 class="title">Contact us</h3>
+                        <div class="input-container">
+                            <input type="text" name="name" class="input" />
+                            <label for="">name</label>
+                            <span>name</span>
+                        </div>
+                        <div class="input-container">
+                            <input type="email" name="email" class="input" />
+                            <label for="">Email</label>
+                            <span>Email</span>
+                        </div>
+                        <div class="input-container">
+                            <input type="tel" name="phone" class="input" />
+                            <label for="">Phone</label>
+                            <span>phone</span>
+                        </div>
+                        <div class="input-container textarea">
+                            <textarea name="message" class="input"></textarea>
+                            <label for="">Message</label>
+                            <span>Query</span>
+                        </div>
+                        <input type="submit" value="Submit" class="btn" />
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init(
+                {
+                    offset: 350,
+                    duration: 1000,
+                    once: false,
+                }
+            );
+            const inputs = document.querySelectorAll(".input");
+
+function focusFunc() {
+  let parent = this.parentNode;
+  parent.classList.add("focus");
+}
+
+function blurFunc() {
+  let parent = this.parentNode;
+  if (this.value == "") {
+    parent.classList.remove("focus");
+  }
+}
+
+inputs.forEach((input) => {
+  input.addEventListener("focus", focusFunc);
+  input.addEventListener("blur", blurFunc);
+});
+        </script>
+
+</body>
+
+</html>
